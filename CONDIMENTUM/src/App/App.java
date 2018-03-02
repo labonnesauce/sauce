@@ -17,6 +17,7 @@ public class App extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		ctrl = new Ctrl();
 		primaryStage.setScene(ctrl.getMainScene());
+		primaryStage.setFullScreen(true);
 		primaryStage.show();
 	}
 

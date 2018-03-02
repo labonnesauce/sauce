@@ -3,6 +3,8 @@ package modele;
 import java.util.ArrayList;
 import java.util.List;
 
+import javafx.application.Application;
+
 public class Catapulte {
 
 	/**
@@ -14,6 +16,7 @@ public class Catapulte {
 
 	public static final int NB_BRAS_MIN = 1;
 	public static final int NB_BRAS_MAX = 4;
+	private int numSpecimen; // sert à identifier le spécimen par son numéro.
 
 	private int nb_Bras;
 	public List<Bras> catapulte;
@@ -23,8 +26,8 @@ public class Catapulte {
 	 */
 	public Catapulte() {
 		setNb_Bras(randomBras());
+		catapulte = new ArrayList<Bras>();
 		for (int i = 0; i < getNb_Bras(); i++) {
-			catapulte = new ArrayList<Bras>();
 			catapulte.add(new Bras(randomLongueur(), randomAngleInitial(), randomAngleFinale(), randomVitesse()));
 
 		}
@@ -54,14 +57,22 @@ public class Catapulte {
 		return catapulte;
 	}
 
+	public int getNumSpecimen() {
+		return numSpecimen;
+	}
+
+	public void setNumSpecimen(int numSpecimen) {
+		this.numSpecimen = numSpecimen;
+	}
+
 	// Les méthodes random pour créer la catapulte random
 	private int randomBras() {
-		int nbBras = (int) (Math.random() * (NB_BRAS_MAX - NB_BRAS_MIN));
+		int nbBras = (int) ((int) NB_BRAS_MIN + (Math.random() * (NB_BRAS_MAX)));
 		return nbBras;
 	}
 
 	private int randomLongueur() {
-		int longueur = (int) (Math.random() * (Bras.LONGUEUR_MAX - Bras.LONGUEUR_MIN));
+		int longueur = (int) ((int) Bras.LONGUEUR_MIN + (Math.random() * (Bras.LONGUEUR_MAX)));
 		return longueur;
 	}
 
@@ -85,6 +96,15 @@ public class Catapulte {
 	 */
 	public void lancement() {
 
+	}
+
+	public static void main(String[] args) {
+
+		Catapulte c1 = new Catapulte();
+
+		System.out.println(c1.getNb_Bras());
+		System.out.println(c1.getCatapulte().get(0));
+		System.out.println(c1.getCatapulte().get(1));
 	}
 
 }
