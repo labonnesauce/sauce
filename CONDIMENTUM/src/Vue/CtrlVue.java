@@ -14,6 +14,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class CtrlVue implements Initializable {
@@ -22,16 +24,12 @@ public class CtrlVue implements Initializable {
 	private Scene scene = null;
 
 	@FXML
-	private Button btn1;
-	@FXML
-	private Button btn2;
-	@FXML
-	private TextField tf1;
+	private Button btnQuit;
 
 	public CtrlVue(Ctrl ctrl) {
 		try {
 			this.ctrl = ctrl;
-			FXMLLoader loader1 = new FXMLLoader(getClass().getResource("/vue/scene1.fxml"));
+			FXMLLoader loader1 = new FXMLLoader(getClass().getResource("/vue/Acceuil.fxml"));
 			loader1.setController(this);
 
 			Parent root = loader1.load();
@@ -50,32 +48,111 @@ public class CtrlVue implements Initializable {
 	}
 
 	@FXML
-	private void HandleButtonAction(ActionEvent event) throws IOException {
+	private void actionCharger() {
 
-		Parent root = null;
-		Stage stage = null;
+		// Charger une Sauvegarde
+		System.out.println("CHARGER");
+
+	}
+
+	@FXML
+	private void actionFermer(ActionEvent event) {
+		System.out.println(((Button) event.getSource()).getId());
+		Stage stage = (Stage) btnQuit.getScene().getWindow();
+		stage.close();
+	}
+
+	@FXML
+	private void actionGrid(ActionEvent event) throws IOException {
+		// System.out.println(((GridPane) event.getSource()).getId());
+		System.out.println("btnGrille");
 
 		try {
-
-			if (event.getSource() == btn1) {
-
-				FXMLLoader loader = new FXMLLoader(getClass().getResource("/vue/scene2.fxml"));
-				loader.setController(this);
-				root = loader.load();
-				stage = (Stage) btn1.getScene().getWindow();
-			}
-
-			if (event.getSource() == btn2) {
-
-				if (tf1.getText()!="") {
-					
-				}
-				
-				
-			}
-
+			Parent root = null;
+			Stage stage = null;
+			FXMLLoader loader = null;
+			loader = new FXMLLoader(getClass().getResource("/vue/Lecture.fxml"));
+			stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+			loader.setController(this);
+			root = loader.load();
 			scene = new Scene(root);
+			stage.setFullScreenExitHint("");
 			stage.setScene(scene);
+			stage.setFullScreen(true);
+
+			stage.show();
+		} catch (Exception e) {
+
+			System.err.println("Erreur de chargement du fxml! " + e);
+			e.printStackTrace();
+		}
+	}
+
+	private void newGame() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@FXML
+	private void ChangerScene(ActionEvent event) throws IOException {
+
+		try {
+			Parent root = null;
+			Stage stage = null;
+			FXMLLoader loader = null;
+
+			String id = ((Button) event.getSource()).getId();
+
+			switch (id) {
+			case "btnNew":
+				System.out.println(id);
+				loader = new FXMLLoader(getClass().getResource("/vue/Nouveau.fxml"));
+				stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+				break;
+			case "btn2":
+				System.out.println(id);
+				newGame();
+				loader = new FXMLLoader(getClass().getResource("/vue/Principal.fxml"));
+				stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+				break;
+			case "btn3":
+				System.out.println(id);
+				loader = new FXMLLoader(getClass().getResource("/vue/Acceuil.fxml"));
+				stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+				break;
+			case "btn4":
+				System.out.println(id);
+				loader = new FXMLLoader(getClass().getResource("/vue/Acceuil.fxml"));
+				stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+				break;
+			case "btn5":
+				System.out.println(id);
+				loader = new FXMLLoader(getClass().getResource("/vue/Principal.fxml"));
+				stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+				break;
+			case "btn6":
+				System.out.println(id);
+				loader = new FXMLLoader(getClass().getResource("/vue/Statistiques.fxml"));
+				stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+				break;
+			case "btn7":
+				System.out.println(id);
+				loader = new FXMLLoader(getClass().getResource("/vue/Principal.fxml"));
+				stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+				break;
+
+			default:
+				System.out.println("DEFAUT");
+				break;
+			}
+
+			loader.setController(this);
+			root = loader.load();
+			scene = new Scene(root);
+			stage.setFullScreenExitHint("");
+			stage.setScene(scene);
+			stage.setFullScreen(true);
+
 			stage.show();
 
 		} catch (Exception e) {
@@ -85,9 +162,13 @@ public class CtrlVue implements Initializable {
 		}
 	}
 
+	private void initGrid() {
+
+	}
+
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
+		initGrid();
 
 	}
 
