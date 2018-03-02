@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="974.0" prefWidth="1441.0" style="-fx-border-width: 20; -fx-border-color: #39575D;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <top>
+      <VBox alignment="CENTER" prefHeight="61.0" prefWidth="728.0" style="-fx-background-color: #60909A;" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="726.0" text="GÉNÉRATEUR ÉVOLUTIF DE CATAPULTES" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </top>
+   <left>
+      <Pane prefHeight="730.0" prefWidth="300.0" style="-fx-background-color: #E6E6E6;" BorderPane.alignment="CENTER">
+         <children>
+            <Label contentDisplay="CENTER" layoutX="-142.0" layoutY="170.0" prefHeight="59.0" prefWidth="371.0" rotate="90.0" text="CONDIMENTUM" textFill="#39575d">
+               <font>
+                  <Font size="41.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </left>
+   <right>
+      <Pane prefHeight="730.0" prefWidth="300.0" style="-fx-background-color: #E6E6E6;" BorderPane.alignment="CENTER" />
+   </right>
+   <center>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label maxHeight="60.0" maxWidth="300.0" prefHeight="60.0" prefWidth="300.0" text="COBAYE : - - - -" textFill="#39575d">
+                     <font>
+                        <Font size="38.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER_RIGHT" maxHeight="60.0" maxWidth="300.0" prefHeight="60.0" prefWidth="300.0" text="DISTANCE : 0 M" textFill="#39575d">
+                     <font>
+                        <Font size="38.0" />
+                     </font></Label>
+               </children>
+            </HBox>
+            <Pane prefHeight="617.0" prefWidth="801.0" style="-fx-background-color: #96D9DC;" />
+            <Pane prefHeight="68.0" prefWidth="801.0" style="-fx-background-color: #44883A;" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button alignment="CENTER" contentDisplay="CENTER" maxHeight="50.0" maxWidth="200.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #60909A; -fx-border-color: #39575D; -fx-border-width: 5;" text="JOUER" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="btn7" alignment="CENTER" contentDisplay="CENTER" maxHeight="50.0" maxWidth="200.0" mnemonicParsing="false" onAction="#ChangerScene" prefHeight="50.0" prefWidth="200.0" style="-fx-background-color: #60909A; -fx-border-color: #39575D; -fx-border-width: 5;" text="RETOUR" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                     </HBox.margin>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
